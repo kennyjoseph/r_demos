@@ -14,6 +14,7 @@ library(twitteR)
 
 #The API key and API secret are from the Twitter app page above. This will lead you through httr's OAuth authentication process. I recommend you look at the man page for Token in httr for an explanation of how it handles caching.
 #You should be ready to go!
+##****make sure you replace API KEY with your key and API SECRET with your secret***
 setup_twitter_oauth("API KEY", "API SECRET")
 
 source("demo_func.R")
