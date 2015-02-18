@@ -1,0 +1,17 @@
+{
+    "contents" : "library(igraph)\n\nget_reply_network <- function(tweets){\n  df <- data.frame(sender=c(),receiver=c())\n  ##for each tweet\n  for(t in tweets){\n    ##if it is a reply\n    if(length(t$replyToSN) > 0){\n      ##print the link\n      print(paste0(t$screenName,\"->\",t$replyToSN))\n      ##add the link to our set of replies\n      if(t$screenName != t$replyToSN){\n        df <- rbind(df,data.frame(sender=t$screenName,receiver=t$replyToSN))\n      }\n    }\n  }\n  ##return an igraph object\n  return(graph.data.frame(df))\n}",
+    "created" : 1424292506994.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2122952641",
+    "id" : "57578D20",
+    "lastKnownWriteTime" : 1424292740,
+    "path" : "~/Desktop/twitter_r_demo/demo_func.R",
+    "project_path" : "demo_func.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

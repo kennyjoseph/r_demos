@@ -1,0 +1,17 @@
+{
+    "contents" : "##FROM https://github.com/geoffjentry/twitteR##\n\n#I generally recommend that users track this GitHub version as opposed to the CRAN version as releases only happen every few months (if not more) and many fixes can show up in that time. Currently there's also a dependence on the github version of httr. To do this:\n\n# Create a Twitter application at http://dev.twitter.com. Make sure to give the app read, write and direct message authority.\n#Take note of the following values from the Twitter app page: \"API key\", \"API secret\", \"Access token\", and \"Access token secret\".\n\ninstall.packages(c(\"devtools\", \"rjson\", \"bit64\", \"httr\",\"igraph\"))\n\n#Make sure to restart your R session at this point\nlibrary(devtools)\ninstall_github(\"geoffjentry/twitteR\")\nlibrary(twitteR)\n\n#The API key and API secret are from the Twitter app page above. This will lead you through httr's OAuth authentication process. I recommend you look at the man page for Token in httr for an explanation of how it handles caching.\n#You should be ready to go!\nsetup_twitter_oauth(\"API KEY\", \"API SECRET\")\n\nsource(\"demo_func.R\")\nlibrary(igraph)\n\nnetwork_tweets <-  searchTwitter(\"#sna\", n=300)\nigraph_network <- get_reply_network(network_tweets)\n\n\n##no retweets!\nkennys_tweets <- userTimeline('kjoseph5', n=100)\nigraph_kenny <- get_reply_network(kennys_tweets)\n\n##how would we do a \"snowball sample\"?\n\n",
+    "created" : 1424290975477.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3765527085",
+    "id" : "32EA69F",
+    "lastKnownWriteTime" : 1424292801,
+    "path" : "~/Desktop/twitter_r_demo/demo.R",
+    "project_path" : "demo.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
